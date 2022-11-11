@@ -1,37 +1,64 @@
-def math(a,b,i):
-    if i == '+':
-        return int(a)+int(b)
-    elif i == '-':
-        return int(a)-int(b)
-    elif i == '*':
-        return int(a)*int(b)
-    elif i == '/':                    
-        return int(a)/int(b)
+import re
+import copy
 
-def check_brace (con):
-    con = con.replace(' ','')
-    if '(' in con:
-        con_part = con[con.find('(')+1:con.find(')')]
-        new_con = con.replace(str(con[con.find('('):con.find(')')+1]), str(calc(con_part)))
-        return calc(new_con)
-    else:
-        return calc(con)
-
-def calc(con):
-        oper = ['+', '-', '*', '/']
-        for i in oper:
-            if (j := con.find(i)) >= 0:
-                left = con[:j]
-                right = con[j+1:]
-                if left.isdigit() and right.isdigit():
-                    return math(left, right, i)
-                elif left.isdigit() and not right.isdigit():
-                    return math(left, calc(right), i)
-                elif not left.isdigit() and right.isdigit():
-                    return math(calc(left), right, i)
-                else: 
-                    return math(calc(left), calc(right), i)
+ops = {
+    '+': lambda x, y: x + y,
+    '-': lambda x, y: x - y,
+    '*': lambda x, y: x * y,
+    '/': lambda x, y: x / y,
+}
 
 
-con = input('Задайте арифмитическое выражение строкой: ')
-print(f'Ответ: {check_brace(con)}')
+def sub_calc(expression_list):
+    i = - 1
+    for el in expression_list[:]:
+        i += 1
+        if el[1] in {'*', '/'} and i + 1 != len(expression_list):
+            expression_list[i + 1][0] = ops[el[1]](float(el[0]), float(expression_list[i + 1][0]))
+            expression_list.pop(i)
+            i -= 1
+    i = - 1
+    for el in expression_list[:]:
+        i += 1
+        if el[1] in {'+', '-'} and i + 1 != len(expression_list):
+            expression_list[i + 1][0] = ops[el[1]](float(el[0]), float(expression_list[i + 1][0]))
+            expression_list.pop(i)
+            i -= 1
+    return expression_list[0][0]
+
+
+def simple_calc(expression):
+    expression = expression.replace(' ', '')
+    pattern = r"(\()?(\-?\d{1,}\.?\d{0,})(\))?([*/+-]?)"
+    expression_list = list(map(list, re.findall(pattern, expression)))
+    expression_list = [list(filter(lambda x: x != '', el)) for el in expression_list]
+    expression_list[-1].append('')
+
+    while True:
+        start = []
+        end = []
+        for i, el in enumerate(expression_list):
+            if '(' in el:
+                start.append(i)
+            elif ')' in el:
+                end.append(i)
+        if start and end:
+            sub_expression_list = copy.deepcopy(expression_list[start[-1]:end[0] + 1])
+            sub_expression_list[0].remove('(')
+            sub_expression_list[-1].remove(')')
+            sub_expression_list[-1].append('')
+            sub_result = sub_calc(sub_expression_list)
+            expression_list[end[0]][0] = sub_result
+            count = 0
+            for i in range(start[-1], end[0]):
+                expression_list.pop(i - count)
+                count += 1
+        else:
+            break
+
+    return sub_calc(expression_list) if sub_calc(expression_list) % 1 != 0 else int(sub_calc(expression_list))
+
+try:
+    print(simple_calc('2*2+(2*(3+2))'))
+except ZeroDivisionError as error:
+    print(error)
