@@ -57,8 +57,3 @@ def simple_calc(expression):
             break
 
     return sub_calc(expression_list) if sub_calc(expression_list) % 1 != 0 else int(sub_calc(expression_list))
-
-try:
-    print(simple_calc('2+3 + 2*(3+2*4))'))
-except ZeroDivisionError as error:
-    print(error)

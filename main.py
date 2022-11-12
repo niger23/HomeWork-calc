@@ -1,5 +1,3 @@
-123
-Yato
-Yato_home
+import user_interface as ui
 
-Test Igor
+ui.interface()
