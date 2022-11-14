@@ -10,24 +10,30 @@
 ## После запуска
 
 После запуска приложения пользователь попадает в главное меню:
+
 ![enter image description here](https://i.ibb.co/GxBSCvk/main-menu.jpg)
+
 где может выбрать один из предложенных вариантов.
 
 ## Решение примеров
 После выбора метода решения, попадаем в меню ввода:
+
 ![enter image description here](https://i.ibb.co/JpKGGNq/user-input.jpg)
 
 ## Вывод результата
 После ввода нажимаем "Ок" и получаем результат:
+
 ![enter image description here](https://i.ibb.co/HB65sbN/ration-result.jpg)
 
 ## Ошибки
 
 При возникновении ошибок будет выведено соответствующее сообщение:
+
 ![enter image description here](https://i.ibb.co/3TqKTjz/work-in-error.jpg)
 
 ## Логи
 Приложение полностью отслеживает все действия пользователя: вход, выход, выбор в главном меню, примеры используемые для решения, ошибки:
+
 ![enter image description here](https://i.ibb.co/V2mfcBG/logs.jpg)
 
 
