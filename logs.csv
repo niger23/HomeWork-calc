@@ -4,3 +4,56 @@
 15:03 has been completed 2+5+4*4 with the result 23
 15:03 has been completed 2/3+4/7+4*5 with the result 21.238095238095237
 15:07 has been completed (5+7)/2 with the result 6.0
+11:59 user join selection menu
+12:00 user join selection menu
+12:01 user choise [Logs] in selection menu
+12:01 user join selection menu
+12:01 user choise [Exit] in selection menu
+12:01 user join selection menu
+12:01 user choise [Logs] in selection menu
+12:01 user join selection menu
+12:01 user choise [Rational] in selection menu
+12:03 user join selection menu
+12:03 user choise [Rational] in selection menu
+12:04 user join selection menu
+12:04 user choise [Rational] in selection menu
+12:04 user join selection menu
+12:04 user choise [None] in selection menu
+12:05 user join selection menu
+12:05 user choise [Logs] in selection menu
+12:05 user join selection menu
+12:05 user choise [Rational] in selection menu
+12:05 user join selection menu
+12:06 user choise [Rational] in selection menu
+12:06 has been completed 2.6+2 with the result 4.6
+12:06 user join selection menu
+12:06 user choise [None] in selection menu
+12:06 user join selection menu
+12:06 user choise [Logs] in selection menu
+12:07 user join selection menu
+12:07 user choise [Rational] in selection menu
+12:08 user join selection menu
+12:08 user choise [Rational] in selection menu
+12:08 the user has an error: float division by zero
+12:08 user join selection menu
+12:08 user choise [Exit] in selection menu
+12:08 user join selection menu
+12:09 user choise [Logs] in selection menu
+12:09 user join selection menu
+12:09 user choise [Exit] in selection menu
+12:09 user join selection menu
+12:09 user choise [Rational] in selection menu
+12:10 the user has an error: list index out of range
+12:10 user join selection menu
+12:10 user choise [Rational] in selection menu
+12:10 the user has an error: list index out of range
+12:10 user join selection menu
+12:10 user choise [Rational] in selection menu
+12:10 has been completed 2.5*2+1.2*3 with the result 8.6
+12:11 user join selection menu
+12:11 user choise [Exit] in selection menu
+12:11 user join selection menu
+12:11 user choise [Rational] in selection menu
+12:13 the user has an error: float division by zero
+12:13 user join selection menu
+12:13 user choise [Logs] in selection menu
